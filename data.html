@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="data.css">
+
+</head>
+
+<body onload="init()"><!-- onload="init()" -->
+
+<h1>Registration Form</h1>
+    <form id="form1" name="myForm" class="form1" onsubmit="return validation();">
+        <div id="user-field">   <!--class="success"-->
+        
+            <label for="username">User Name : </label> 
+            <input type="text" autocomplete="off" placeholder="Enter User Name" id="username" name="username" onkeyup="username1()"> 
+            <span role="alert" id="icons" >
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span>
+            <br> <small id="uname"></small>
+            <br>
+        </div>
+        <div id="f-field">
+            <label for="firstname">First Name : </label>
+            <input type="text" placeholder="Enter first name" id="firstname" onkeyup="username1()" name="fname"> 
+            <span role="alert" id="icons" >
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span><br>
+            <small id="fname"></small>
+            <br>
+            <!-- <span id="fname" ></span><br> -->
+        </div>
+        <div id="m-field">
+            <label for="middlename">Middle Name : </label>
+            <input type="text" placeholder="Enter middle name" id="middlename" onkeyup="username1()" name="mname">
+            <span id="icons">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span><br><small id="mname"></small> <br>
+        </div>
+        
+        <div id="l-field">
+            <label for="lastname">Last Name : </label>
+            <input type="text" placeholder="Enter last name" id="lastname" onkeyup="username1()" name="lname">
+            <span id="icons">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span><br><small id="lname"></small> <br>
+        </div>
+
+        <div id="d-field">
+            <label for="dob">DOB : </label>
+            <input type="date" id="dob" name="dob" onkeyup="username1()">
+            <span id="icons">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span><br><small id="dob1"></small> <br>
+        </div>
+
+        
+            <label for="gender">Gender : </label>
+            <input type="radio" name="gender" id="gender" value="male">
+            <label for="gender">Male</label>
+            <input type="radio" name="gender" id="gender" value="female">
+            <label for="gender">Female</label>
+            <br><span id="gender1" ></span><br>
+
+            <label for="hobby">Hobby : </label>
+            <input type="checkbox" id="hobby" name="Reading" value="Reading">
+            <label for="hobby"> Reading</label>
+            <input type="checkbox" id="hobby" name="Writing" value="Writing">
+            <label for="hobby"> Writing</label>
+            <input type="checkbox" id="hobby" name="Traveling" value="Traveling">
+            <label for="hobby"> Traveling</label><br><span id="hobby1"></span><br>
+
+        <div id="p-field">
+            <label for="password">Password : </label>
+            <input type="password" placeholder="Enter Password" id="password" onkeyup="username1()" name="pswd1">
+            <span id="icons">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span><br><small id="pswd3"></small> <br>
+        </div>
+
+        <div id="pc-field">
+            <label for="co-password">Confirm Password : </label>
+            <input type="password" placeholder="Enter Confirm Password" id="copassword" onkeyup="username1()" name="pswd2">
+            <span id="icons">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span><br><small id="pswd4"></small> <br>
+        </div>
+
+        <div id="a-field">
+            <label for="address">Address : </label>
+            <textarea name="address" id="address" cols="30" rows="3" onkeyup="username1()" placeholder="Enter your Address"></textarea>
+            <!-- <br><span id="address1" ></span><br> -->
+            <span id="icons">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+            </span><br><small id="address1"></small> <br>
+        </div>
+
+            <label for="submit">&nbsp;</label>
+            <button type="submit" id="submit" ondblclick="login.html" onclick="onRegisterPressed();matchPassword();" >Register</button>
+            <button type="submit" id="login"> <a href="./login.html" style="color: aliceblue"> Log In</a></button>
+            <button id="clear" onclick="onClearPressed(); relod();">Clear</button>
+
+    
+    </form>
+
+    <br><br><br>
+
+    <div style="display: show" >
+        <table class="t1" border="1" cellspacing="5" cellpadding="12" id='redtable'>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Hobby</th>
+                    <th>Password</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tablerows">
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="./data1.js"></script>
+<script src="./validation.js"></script>
+
+
+
+
+
+
+
+
+
+
+<!-- <fieldset>
+
+            <label for="subject">Subject</label>
+
+            <select id="subject">
+
+                <option value="Math">Math</option>
+
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+
+                <option value="English">English</option>
+                <option value="Tamil">Tamil</option>
+
+            </select>
+
+        </fieldset> -->
+
+
+</html>
